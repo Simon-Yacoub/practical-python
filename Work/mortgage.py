@@ -25,6 +25,6 @@ while principal > 0:
         total_paid = total_paid + payment
     
     months += 1
+    print('Month', months, 'Total paid', total_paid, 'Principal remaining', principal)
     
 
-print('Total paid', total_paid, 'Months', months)
