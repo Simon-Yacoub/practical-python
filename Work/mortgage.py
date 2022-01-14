@@ -18,11 +18,20 @@ extra_payment = int(input("How much will you pay extra"))
 
 while principal > 0:
     if(extra_payment_start_month <= months < extra_payment_end_month):
-        principal = principal * (1+rate/12) - (payment + extra_payment) 
-        total_paid = total_paid + payment + extra_payment
+        if(principal < payment + extra_payment):
+            total_paid = total_paid + principal
+            principal = 0
+        else:
+            principal = principal * (1+rate/12) - (payment + extra_payment) 
+            total_paid = total_paid + payment + extra_payment
+        
     else:
-        principal = principal * (1+rate/12) - payment
-        total_paid = total_paid + payment
+        if(principal < payment):
+            total_paid = total_paid + principal
+            principal = 0
+        else: 
+            principal = principal * (1+rate/12) - payment
+            total_paid = total_paid + payment
     
     months += 1
     print('Month', months, 'Total paid', total_paid, 'Principal remaining', principal)
