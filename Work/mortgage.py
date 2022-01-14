@@ -12,10 +12,14 @@ payment = 2684.11 #monthly payment
 total_paid = 0.0
 months = 0
 
+extra_payment_start_month = int(input("Which month will you start paying extra (expecting an integer)"))
+extra_payment_end_month = int(input("Which month will you stop paying extra (expecting an integer)"))
+extra_payment = int(input("How much will you pay extra"))
+
 while principal > 0:
-    if(months < 12):
-        principal = principal * (1+rate/12) - (payment + 1000) #Dave makes an extra 1000$ payment in first 12 months
-        total_paid = total_paid + payment + 1000 
+    if(extra_payment_start_month <= months < extra_payment_end_month):
+        principal = principal * (1+rate/12) - (payment + extra_payment) 
+        total_paid = total_paid + payment + extra_payment
     else:
         principal = principal * (1+rate/12) - payment
         total_paid = total_paid + payment
