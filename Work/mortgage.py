@@ -34,6 +34,6 @@ while principal > 0:
             total_paid = total_paid + payment
     
     months += 1
-    print('Month', months, 'Total paid', total_paid, 'Principal remaining', principal)
+    print(f'Month: {months} Total Paid: {total_paid:0.2f}  Principal remaining:{principal:0.2f}')
     
 
